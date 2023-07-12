@@ -3,6 +3,8 @@ import com.eps.epsspringrestapi.patients.domain.Patient;
 import com.eps.epsspringrestapi.patients.domain.PatientRepository;
 import com.eps.epsspringrestapi.utils.ResponseBuilder;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -10,7 +12,6 @@ import java.util.*;
 
 @Service
 public class PatientService {
-    HashMap<String, Object> data;
     private final PatientRepository patientRepository;
 
     @Autowired
@@ -18,8 +19,8 @@ public class PatientService {
         this.patientRepository = patientRepository;
     }
 
-    public List<Patient> getPatients(){
-        return patientRepository.findAll();
+    public Page<Patient> getPatients(Pageable pageable){
+        return patientRepository.findAll(pageable);
     }
 
     public ResponseEntity<Object> createPatient(Patient patient){
@@ -45,12 +46,11 @@ public class PatientService {
         }
         // Save patient
         patientRepository.save(patient);
-        data.put("data", patient);
-        data.put("message", "Patient created");
-        return new ResponseEntity<>(
-            data,
+        return new ResponseBuilder(
+            patient,
+            "Patient created",
             HttpStatus.CREATED
-        );
+        ).send();
     }
 
     public ResponseEntity<Object> updatePatient(Patient patient, Long patientId){
@@ -84,14 +84,14 @@ public class PatientService {
                 HttpStatus.CONFLICT
             ).send();
         }
-        // Save patient
+        // Update patient
+        patient.setId(patientId);
         patientRepository.save(patient);
-        data.put("data", patient);
-        data.put("message", "Patient created");
-        return new ResponseEntity<>(
-            data,
-            HttpStatus.CREATED
-        );
+        return new ResponseBuilder(
+            patient,
+            "Patient updated",
+            HttpStatus.ACCEPTED
+        ).send();
     }
 
     public ResponseEntity<Object> deletePatient(Long patientId){
@@ -105,11 +105,10 @@ public class PatientService {
             ).send();
         }
         patientRepository.deleteById(patientId);
-        data.put("message", "Patient deleted");
-        return new ResponseEntity<>(
-            data,
+        return new ResponseBuilder(
+            "Patient deleted",
             HttpStatus.ACCEPTED
-        );
+        ).send();
     }
 
 }

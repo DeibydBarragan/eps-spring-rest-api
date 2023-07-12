@@ -5,20 +5,17 @@ import com.eps.epsspringrestapi.patients.domain.Patient;
 import com.eps.epsspringrestapi.utils.ResponseBuilder;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 import java.util.Objects;
 
 @RestController
 @RequestMapping(path="api/patients")
 public class PatientController {
-    HashMap<String, Object> data;
     private final PatientService patientService;
 
     @Autowired
@@ -27,8 +24,8 @@ public class PatientController {
     }
 
     @GetMapping
-    public List<Patient> getPatients(){
-        return patientService.getPatients();
+    public Page<Patient> getPatients(Pageable pageable){
+        return patientService.getPatients(pageable);
     }
 
     @PostMapping
@@ -45,7 +42,7 @@ public class PatientController {
         return patientService.createPatient(patient);
     }
 
-    @PatchMapping(path="{patientId}")
+    @PutMapping(path="{patientId}")
     public ResponseEntity<Object> patchPatient(@PathVariable("patientId") Long patientId, @Valid @RequestBody Patient patient, BindingResult bindingResult){
         // Validate request body
         if(bindingResult.hasErrors()){

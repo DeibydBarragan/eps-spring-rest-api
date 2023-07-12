@@ -1,4 +1,4 @@
-package com.eps.epsspringrestapi.patients.domain;
+package com.eps.epsspringrestapi.doctors.domain;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
 import org.hibernate.annotations.SQLDelete;
@@ -8,10 +8,10 @@ import org.hibernate.validator.constraints.Length;
 import java.util.Date;
 
 @Entity
-@SQLDelete(sql = "UPDATE patients SET deleted_at = NOW() WHERE id = ?")
+@SQLDelete(sql = "UPDATE doctors SET deleted_at = NOW() WHERE id = ?")
 @Where(clause = "deleted_at is null")
-@Table(name = "patients")
-public class Patient {
+@Table(name = "doctors")
+public class Doctor {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(updatable = false, nullable = false)
@@ -29,9 +29,13 @@ public class Patient {
     @Max(99999999999L)
     @Column(unique = true)
     private Long cedula;
-    @Min(0)
-    @Max(130)
-    private int age;
+    @NotNull
+    @NotBlank
+    @Pattern(regexp = "Medicina general|Cardiología|Medicina interna|Dermatología|Rehabilitación física|Psicología|Odontología|Radiología", message = "Specialty must be one of the following: Medicina general, Cardiología, Medicina interna, Dermatología, Rehabilitación física, Psicología, Odontología, Radiología")
+    private String specialty;
+    @Min(100)
+    @Max(999)
+    private int office;
     @NotNull
     @Email
     @Column(unique = true)
@@ -42,25 +46,27 @@ public class Patient {
     private long phone;
     private Date deletedAt = null;
 
-    public Patient() {
+    public Doctor() {
     }
 
-    public Patient(Long id,@NotNull String name, @NotNull String lastname, long cedula, int age, @NotNull String email, long phone, Date deletedAt) {
+    public Doctor(Long id,@NotNull String name, @NotNull String lastname, long cedula, @NotNull String specialty, int office, @NotNull String email, long phone, Date deletedAt) {
         this.id = id;
         this.name = name;
         this.lastname = lastname;
         this.cedula = cedula;
-        this.age = age;
+        this.specialty = specialty;
+        this.office = office;
         this.email = email;
         this.phone = phone;
         this.deletedAt = deletedAt;
     }
 
-    public Patient(@NotNull String name, @NotNull String lastname, long cedula, int age, @NotNull String email, long phone) {
+    public Doctor(@NotNull String name, @NotNull String lastname, long cedula, @NotNull String specialty, int office, @NotNull String email, long phone) {
         this.name = name;
         this.lastname = lastname;
         this.cedula = cedula;
-        this.age = age;
+        this.specialty = specialty;
+        this.office = office;
         this.email = email;
         this.phone = phone;
     }
@@ -97,12 +103,12 @@ public class Patient {
         this.cedula = cedula;
     }
 
-    public int getAge() {
-        return age;
+    public int getOffice() {
+        return office;
     }
 
-    public void setAge(int age) {
-        this.age = age;
+    public void setOffice(int office) {
+        this.office = office;
     }
 
     public @NotNull String getEmail() {
@@ -127,6 +133,14 @@ public class Patient {
 
     public void setDeletedAt(Date deletedAt) {
         this.deletedAt = deletedAt;
+    }
+
+    public @NotNull String getSpecialty() {
+        return specialty;
+    }
+
+    public void setSpecialty(@NotNull String specialty) {
+        this.specialty = specialty;
     }
 
 }
