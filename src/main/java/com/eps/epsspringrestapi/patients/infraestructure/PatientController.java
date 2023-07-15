@@ -11,6 +11,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
+
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Objects;
 
 @RestController
@@ -31,6 +34,7 @@ public class PatientController {
     @PostMapping
     public ResponseEntity<Object> postPatient(@Valid @RequestBody Patient patient, BindingResult bindingResult){
         // Validate request body
+        System.out.println(LocalDateTime.now());
         if(bindingResult.hasErrors()){
             return new ResponseBuilder(
                 true,
