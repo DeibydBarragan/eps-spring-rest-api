@@ -1,10 +1,13 @@
 package com.eps.epsspringrestapi.doctors.domain;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
+import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.SQLDelete;
+import org.hibernate.annotations.UpdateTimestamp;
 import org.hibernate.annotations.Where;
 import org.hibernate.validator.constraints.Length;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 
 @Entity
@@ -46,10 +49,17 @@ public class Doctor {
     private long phone;
     private Date deletedAt = null;
 
+    @CreationTimestamp
+    @Column(updatable = false)
+    private LocalDateTime createdAt;
+
+    @UpdateTimestamp
+    private LocalDateTime updatedAt;
+
     public Doctor() {
     }
 
-    public Doctor(Long id,@NotNull String name, @NotNull String lastname, long cedula, @NotNull String specialty, int office, @NotNull String email, long phone, Date deletedAt) {
+    public Doctor(Long id,@NotNull String name, @NotNull String lastname, long cedula, @NotNull String specialty, int office, @NotNull String email, long phone, Date deletedAt, LocalDateTime createdAt, LocalDateTime updatedAt) {
         this.id = id;
         this.name = name;
         this.lastname = lastname;
@@ -59,6 +69,8 @@ public class Doctor {
         this.email = email;
         this.phone = phone;
         this.deletedAt = deletedAt;
+        this.createdAt = createdAt;
+        this.updatedAt = updatedAt;
     }
 
     public Doctor(@NotNull String name, @NotNull String lastname, long cedula, @NotNull String specialty, int office, @NotNull String email, long phone) {
@@ -143,4 +155,11 @@ public class Doctor {
         this.specialty = specialty;
     }
 
+    public Date getDeletedAt() {
+        return deletedAt;
+    }
+
+    public LocalDateTime getCreatedAt() {
+        return createdAt;
+    }
 }
