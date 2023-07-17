@@ -1,0 +1,1 @@
+export type Endpoint = 'patients' | 'doctors' | 'appointments'
