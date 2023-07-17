@@ -17,6 +17,7 @@ import java.time.LocalDateTime;
 import java.util.Objects;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:3000")
 @RequestMapping(path="api/patients")
 public class PatientController {
     private final PatientService patientService;

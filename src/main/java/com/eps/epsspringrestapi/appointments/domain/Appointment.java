@@ -2,10 +2,8 @@ package com.eps.epsspringrestapi.appointments.domain;
 import com.eps.epsspringrestapi.doctors.domain.Doctor;
 import com.eps.epsspringrestapi.patients.domain.Patient;
 import jakarta.persistence.*;
-import org.hibernate.annotations.CreationTimestamp;
-import org.hibernate.annotations.SQLDelete;
-import org.hibernate.annotations.UpdateTimestamp;
-import org.hibernate.annotations.Where;
+import jakarta.persistence.Table;
+import org.hibernate.annotations.*;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.time.LocalDateTime;
