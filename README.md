@@ -128,7 +128,7 @@ Now you can use the frontend app in http://localhost:3000
 }
 ```
 ##### Example
-[Post patient](https://github.com/DeibydBarragan/eps-rest-api/assets/116578796/b861fa4f-2690-424d-adf8-61ad74b75d20)
+[Post patient](https://github.com/DeibydBarragan/eps-spring-rest-api/assets/116578796/5fb3d0b9-17a7-4022-93c7-ccaf798e8a7e)
 
 #### Update a patient
 **Endpoint:** `PUT /api/patients/{id}`
@@ -138,7 +138,7 @@ Now you can use the frontend app in http://localhost:3000
 Use the same fields as creating a patient.
 
 ##### Example
-[Update patient](https://github.com/DeibydBarragan/eps-rest-api/assets/116578796/3a868c41-cfb2-4102-b91c-5e8cfad1be19)
+[Update patient](https://github.com/DeibydBarragan/eps-spring-rest-api/assets/116578796/985543c8-b4b3-4199-9228-27d35e59736d)
 
 #### Delete a patient
 **Endpoint:** `DELETE /api/patients/{id}`
@@ -146,7 +146,7 @@ Use the same fields as creating a patient.
 - `id` (required): patient id.
 
 ##### Example
-[Delete patient](https://github.com/DeibydBarragan/eps-rest-api/assets/116578796/e887c271-aab9-4534-ad6a-9e2492fa3557)
+[Delete patient](https://github.com/DeibydBarragan/eps-spring-rest-api/assets/116578796/157bec3c-02a8-4872-8bc7-fd2726c0bae1)
 
 #### Get and paginate patients
 **Endpoint:** `GET /api/patients`
@@ -155,7 +155,7 @@ Use the same fields as creating a patient.
 - `page` (optional): bring patients of a specific page.
 
 ##### Example
-[Get and paginate patients](https://github.com/DeibydBarragan/eps-rest-api/assets/116578796/9eafeba1-2a0e-4a04-b37b-ba1dc14fd367)
+[Get and paginate patients](https://github.com/DeibydBarragan/eps-spring-rest-api/assets/116578796/b4a194dc-1c53-4436-94e6-d97d0f0d7ac2)
 
 ### Doctors API
 
@@ -174,7 +174,7 @@ Use the same fields as creating a patient.
 }
 ```
 ##### Example
-[Create doctor](https://github.com/DeibydBarragan/eps-rest-api/assets/116578796/e1ea7896-aff9-4b69-bfb6-543656c7bb3d)
+[Create doctor](https://github.com/DeibydBarragan/eps-spring-rest-api/assets/116578796/7005c498-1d58-46e2-b607-03132faaa203)
 
 #### Update a doctor
 **Endpoint:** `PUT /api/doctors/{id}`
@@ -184,7 +184,7 @@ Use the same fields as creating a patient.
 Use the same fields as creating a doctor
 
 ##### Example
-[Update doctor](https://github.com/DeibydBarragan/eps-rest-api/assets/116578796/2e9c73be-a2a4-459a-9331-49a33632017e)
+[Update doctor](https://github.com/DeibydBarragan/eps-spring-rest-api/assets/116578796/651d1dc7-ab90-4c9d-a8eb-673327ace842)
 
 #### Delete a doctor
 **Endpoint:** `DELETE /api/doctors/{id}`
@@ -192,7 +192,7 @@ Use the same fields as creating a doctor
 - `id` (required): patient id.
 
 ##### Example
-[Delete a doctor](https://github.com/DeibydBarragan/eps-rest-api/assets/116578796/f49f982b-a587-49ad-bacb-dc1ea04c2a70)
+[Delete a doctor](https://github.com/DeibydBarragan/eps-spring-rest-api/assets/116578796/5b4fd7db-6180-4ea9-bc97-54e625cb0f95)
 
 #### Get all doctors without pagination and filter them by speciality
 **Endpoint:** `GET /api/doctors/all`
@@ -200,7 +200,7 @@ Use the same fields as creating a doctor
 - `specialty` (optional): value must between 0 and 7. Filter doctors by their speciality.
 
 ##### Example
-[Get all doctors without pagination and filter them by specialty](https://github.com/DeibydBarragan/eps-rest-api/assets/116578796/4a3baea7-715b-470f-91eb-5f6a413c1ade)
+[Get all doctors without pagination and filter them by specialty](https://github.com/DeibydBarragan/eps-spring-rest-api/assets/116578796/f99217e5-9f2e-4b70-a2be-33bc25160670)
 
 #### Get and paginate doctors
 **Endpoint:** `GET /api/doctors`
@@ -209,7 +209,7 @@ Use the same fields as creating a doctor
 - `page` (optional): bring doctors of a specific page.
 
 ##### Example
-[Get and paginate doctors](https://github.com/DeibydBarragan/eps-rest-api/assets/116578796/3b26b6b4-e805-421e-ae5d-5d878498d202)
+[Get and paginate doctors](https://github.com/DeibydBarragan/eps-spring-rest-api/assets/116578796/924c9d3e-e7e6-4245-aa5d-819640ec2aa7)
 
 ### Appointments API
 #### Create an appointment
@@ -225,7 +225,7 @@ Use the same fields as creating a doctor
 - `date` (required): It must be a date in 'YYYY-MM-DDTHH:MM:SS.0' format. The time must be in 24 hours and 30 minutes format and the date must be in the future.
 
 ##### Example
-[Create an appointment](https://github.com/DeibydBarragan/eps-rest-api/assets/116578796/c3f79316-d461-41c7-bc69-30e34a83b281)
+[Create an appointment](https://github.com/DeibydBarragan/eps-spring-rest-api/assets/116578796/751325e1-caf8-42ed-882f-34fa22f3f341)
 
 #### Update an appointment
 **Endpoint:** `PUT /api/appointments/{id}`
@@ -235,7 +235,7 @@ Use the same fields as creating a doctor
 Use the same fields as creating an appointment.
 
 ##### Example
-[Update an appointment](https://github.com/DeibydBarragan/eps-rest-api/assets/116578796/b589a857-9686-484a-a29d-356be57d48d2)
+[Update an appointment](https://github.com/DeibydBarragan/eps-spring-rest-api/assets/116578796/12672ae5-a916-4d46-8edf-bc4ff14771a4)
 
 #### Delete an appointment
 **Endpoint:** `DELETE /api/appointments/{id}`
@@ -243,7 +243,7 @@ Use the same fields as creating an appointment.
 - `id` (required): appointment id.
 
 ##### Example
-[Delete an appointment](https://github.com/DeibydBarragan/eps-rest-api/assets/116578796/44e8d810-cb0b-4406-87e4-09cedd08b15f)
+[Delete an appointment](https://github.com/DeibydBarragan/eps-spring-rest-api/assets/116578796/f1e94eb0-9f24-4f93-946a-076fda0ecd6b)
 
 #### Get appointments by patient's cedula
 **Endpoint:** `GET /api/appointments/patient/{cedula}`
@@ -251,7 +251,7 @@ Use the same fields as creating an appointment.
 - `cedula` (required): patient's cedula.
 
 ##### Example
-[Get appointments by patient's cedula](https://github.com/DeibydBarragan/eps-rest-api/assets/116578796/12b938ad-32d6-4221-9ee8-e7a8af8773a4)
+[Get appointments by patient's cedula](https://github.com/DeibydBarragan/eps-spring-rest-api/assets/116578796/45973249-2e90-4ed3-b856-57044eda1830)
 
 #### Get appointments by doctor's cedula
 **Endpoint:** `GET /api/appointments/doctor/{cedula}`
@@ -259,7 +259,7 @@ Use the same fields as creating an appointment.
 - `cedula` (required): doctor's cedula.
 
 ##### Example
-[Get appointments by doctor's cedula](https://github.com/DeibydBarragan/eps-rest-api/assets/116578796/e388fc06-fda7-4667-8913-1a7de232b1cb)
+[Get appointments by doctor's cedula](https://github.com/DeibydBarragan/eps-spring-rest-api/assets/116578796/15027abd-c594-4b3d-b86d-de65ab07eae6)
 
 #### Get and paginate appointments
 **Endpoint:** `GET /api/appointments`
@@ -267,15 +267,16 @@ Use the same fields as creating an appointment.
 - `specialty` (optional): Get appointments by specialty.
 
 ##### Example
-[Get, paginate and filter appointments](https://github.com/DeibydBarragan/eps-rest-api/assets/116578796/aa22a793-1b40-42ad-9754-46104fafd76d)
+[Get and paginate appointments](https://github.com/DeibydBarragan/eps-spring-rest-api/assets/116578796/abd443df-f118-43a5-86fc-0b802a79e4a2)
+[Filter appointments](https://github.com/DeibydBarragan/eps-spring-rest-api/assets/116578796/9e1064a9-7cc9-4909-8909-2e2a07ca842d)
 
 ## How to use the frontend API?
 ### For patients
-[Patients](https://github.com/DeibydBarragan/eps-rest-api/assets/116578796/5b6f6eb4-f7f0-4d4c-842e-45f6fb30ae2c)
+[Patients](https://github.com/DeibydBarragan/eps-spring-rest-api/assets/116578796/6325f311-e83c-4ab9-b535-98e360cea8be)
 ### For doctors
-[Doctors](https://github.com/DeibydBarragan/eps-rest-api/assets/116578796/0f215303-3add-4cd5-b1f6-42c6b1c1474b)
+[Doctors](https://github.com/DeibydBarragan/eps-spring-rest-api/assets/116578796/c3c9dfae-2b6b-4f96-9518-5962817e9b8d)
 ### For appointments
-[Appointments](https://github.com/DeibydBarragan/eps-rest-api/assets/116578796/a445850e-de47-44fd-a531-4750d78238b2)
+[Appointments](https://github.com/DeibydBarragan/eps-spring-rest-api/assets/116578796/a6133ac8-c3fa-466b-913f-467263533779)
 
 ## Additionally, this project uses:
 ### For Backend
