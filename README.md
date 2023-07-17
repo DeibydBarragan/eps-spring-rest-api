@@ -266,8 +266,9 @@ Use the same fields as creating an appointment.
 ##### Query params
 - `specialty` (optional): Get appointments by specialty.
 
-##### Example
+##### Example (getting and paginating)
 [Get and paginate appointments](https://github.com/DeibydBarragan/eps-spring-rest-api/assets/116578796/abd443df-f118-43a5-86fc-0b802a79e4a2)
+##### Example (filtering appointments)
 [Filter appointments](https://github.com/DeibydBarragan/eps-spring-rest-api/assets/116578796/9e1064a9-7cc9-4909-8909-2e2a07ca842d)
 
 ## How to use the frontend API?
