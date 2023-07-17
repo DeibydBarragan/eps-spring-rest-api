@@ -13,7 +13,7 @@ import java.util.List;
 public interface AppointmentRepository extends JpaRepository<Appointment, Long> {
     Page<Appointment> findAllByOrderByDateAsc(Pageable pageable);
 
-    Page<Appointment> getAppointmentByDoctorSpecialtyOrderByDateAsc(String specialty, Pageable pageable);
+    Page<Appointment> getAppointmentBySpecialtyOrderByDateAsc(String specialtyString, Pageable pageable);
     boolean existsAppointmentByDoctorAndDate(Doctor doctor, LocalDateTime date);
 
     Appointment getAppointmentByDoctorAndDate(Doctor doctor, LocalDateTime date);
@@ -30,5 +30,4 @@ public interface AppointmentRepository extends JpaRepository<Appointment, Long> 
     Page<Appointment> getAppointmentByPatientOrderByDateAsc(Patient patient, Pageable pageable);
 
     List<Appointment> getAppointmentByPatient(Patient patient);
-
 }

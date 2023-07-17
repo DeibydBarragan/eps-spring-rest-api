@@ -48,7 +48,7 @@ public class AppointmentService {
             ).send();
         }
         String specialtyString = SpecialtyUtil.getSpecialty(specialty);
-        return appointmentRepository.getAppointmentByDoctorSpecialtyOrderByDateAsc(specialtyString, pageable);
+        return appointmentRepository.getAppointmentBySpecialtyOrderByDateAsc(specialtyString, pageable);
     }
 
     // Get appointments by doctor cedula

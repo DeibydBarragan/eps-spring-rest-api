@@ -53,7 +53,7 @@ public class Patient {
     @UpdateTimestamp
     private LocalDateTime updatedAt;
 
-    @OneToMany(mappedBy = "patient", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "patient", cascade = CascadeType.REMOVE)
     private List<Appointment> appointments;
 
     public Patient() {
